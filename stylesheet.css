@@ -3,13 +3,18 @@
 *   VARIABLE
 *
 *===============*/
-
+* {
+  margin: 0;
+  padding: 0;
+}
 :root {
   /* COULEURS */
   --blanc: #fff;
-  --gray: #f2f2f2;
-  --noir: #000;
-  --noir-opa65: rgba(0, 0, 0, 0.65);
+  --darkgray: #555;
+  --gray: #aaa;
+  --lightgray: #f2f2f2;
+  --noir: #aaa;
+  --noir-opa65: rgba(255, 255, 255, 0.65);
   --bleu: #0065fc;
   --bleuciel: #deebff;
 
@@ -35,40 +40,40 @@
   white-space: nowrap;
 }
 
-.maxwidth50 .fl-col-content {
+.maxwidth50 {
   max-width: 50%;
 }
 
-.maxwidth70 .fl-col-content {
+.maxwidth70 {
   width: 90%;
   max-width: 420px;
 }
 
+.maxwidth400px {
+  max-width: 450px;
+}
+
+.maxheight500px {
+  max-height: 500px;
+}
+
+.maxwidth800px {
+  max-width: 800px;
+}
+
+.maxwidth1200px {
+  max-width: 1200px;
+}
+
 @media all and (max-width: 768px) {
-  .maxwidth70 .fl-col-content {
+  .maxwidth70 {
     width: 100%;
     max-width: inherit;
   }
 }
 
-.maxwidth400px .fl-col-content {
-  max-width: 450px;
-}
-
-.maxheight500px .fl-col-content {
-  max-height: 500px;
-}
-
-.maxwidth800px .fl-col-content {
-  max-width: 800px;
-}
-
-.maxwidth1200px .fl-col-content {
-  max-width: 1200px;
-}
-
 @media all and (min-width: 1250px) {
-  .maxwidth600px .fl-col-content {
+  .maxwidth600px {
     max-width: 600px;
   }
 }
@@ -79,80 +84,61 @@
 *
 *===============*/
 
-h1 {
-  line-height: 1.1 !important;
+@font-face {
+  font-family: "Railway";
+  src: url("/Ressources/fonts/webfontkit/raleway-variablefont_wght-webfont.woff")
+    format("woff");
 }
 
-.bot h1 {
-  line-height: 0;
-  font-size: 95px !important;
+h1,
+h2,
+h3,
+p,
+li,
+a {
+  font-family: "Railway", sans-serif;
 }
 
-.h1-title h1 {
-  font-family: Poppins;
-  font-weight: bold;
-  font-size: 55px;
-}
-
-.h1-title h1 span.fl-heading-text span.span-h {
-  font-size: 1.5em !important;
+h1 span {
+  font-size: 0.8em;
   display: block;
+  color: var(--gray);
+}
+
+h3 {
+  font-size: 20px;
 }
 
 @media all and (max-width: 768px) {
-  .h1-title h1 {
+  h1 {
     font-size: 16px;
   }
-  .h1-title .bas {
-    font-size: 2em;
-  }
 }
 
-.h1-contact .light {
-  font-size: 40px;
-  font-weight: 200;
-}
-
-span .bas {
-  font-size: 1.7em;
-  line-height: 1.3em;
-}
-
-h2,
-.contact-h1 h1 {
-  font-family: "Poppins", sans-serif;
-  font-weight: bold;
-  font-size: 35px;
-  line-height: 1.4em;
-  color: #2c2c2c;
+h2 {
+  font-size: 25px;
 }
 
 @media all and (max-width: 1024px) {
   h2,
-  .contact-h1 h1 {
+  h1 {
     font-size: 25px;
   }
 }
-h3 span.fl-heading-text,
+
 h3 {
-  font-size: 20px !important;
-  line-height: 1em !important;
-  font-family: "mostica", sans-serif;
+  font-size: 20px;
 }
 
 @media all and (max-width: 768px) {
-  .h1-title h1 span.fl-heading-text span.span-h {
-    font-size: 1.2em !important;
+  .h1-title h1 span span.span-h {
+    font-size: 1.2em;
     display: inline-block;
   }
 
   h2,
-  .contact-h1 h1 {
+  h1 {
     font-size: 18px;
-  }
-
-  .feuille .fl-module-content:before {
-    top: -10px;
   }
 
   p {
@@ -165,18 +151,82 @@ h3 {
  * 				HEADER
  * 
  * ======================*/
+
+header {
+  padding: 40px 40px;
+}
+
+header nav {
+  float: right;
+}
+
+header ul li {
+  display: inline;
+  list-style: none;
+}
+
+header ul a {
+  padding: 0px 30px;
+  text-decoration: none;
+  font-weight: var(--regular);
+  color: var(--darkgray);
+}
+
+header li a:active,
+header li a:hover,
+header li a:focus {
+  border-top: 20px solid var(--bleu);
+  padding-top: 38px;
+  color: var(--bleu);
+}
+
+#inscription {
+  font-weight: var(--bold);
+  color: var(--bleu);
+}
+
 /*========================
  * 
  * 				MENU
  * 
  * ======================*/
+
 /*========================
  * 
  * 				FOOTER
  * 
  * ======================*/
+
+footer {
+  display: flex;
+  background-color: var(--lightgray);
+}
+
+footer section {
+  margin: 100px;
+  padding: 50px;
+}
+
+footer ul li {
+  list-style: none;
+  padding-top: 10px;
+}
+
+footer ul a {
+  text-decoration: none;
+  font-weight: var(--regular);
+  color: var(--darkgray);
+}
+
+footer li a:active,
+footer li a:hover,
+footer li a:focus {
+  text-decoration: underline;
+  color: var(--gray);
+}
+
 /*========================
  * 
- * 			ACCUEIL
+ * 			  ACCUEIL
  * 
  * ======================*/
