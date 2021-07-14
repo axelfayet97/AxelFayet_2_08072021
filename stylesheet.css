@@ -247,7 +247,7 @@ section#hebergements {
 
 /* POSITIONNEMENT INTERIEUR CARTE */
 #hebergements article {
-  padding: ;
+  padding: auto;
 }
 
 #hebergements div {
