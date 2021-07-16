@@ -7,9 +7,9 @@
 :root {
   /* COULEURS */
   --blanc: #fff;
-  --darkgray: #555;
-  --gray: #aaa;
-  --lightgray: #f2f2f2;
+  --grisfonce: #555;
+  --gris: #aaa;
+  --grisclair: #f2f2f2;
   --noir: #aaa;
   --noir-opa65: rgba(255, 255, 255, 0.65);
   --bleu: #0065fc;
@@ -93,24 +93,37 @@ aside {
 
 @font-face {
   font-family: "Raleway";
-  src: url("/Ressources/fonts/Raleway/webfont/raleway-variablefont_wght-webfont.woff2") format("woff2"),
-    url("/Ressources/fonts/Raleway/webfont/raleway-variablefont_wght-webfont.woff") format("woff");
+  src: url("/Ressources/fonts/Raleway/webfont/raleway-variablefont_wght-webfont.woff2")
+      format("woff2"),
+    url("/Ressources/fonts/Raleway/webfont/raleway-variablefont_wght-webfont.woff")
+      format("woff");
 }
 
-body, button {
+body,
+button {
   font-family: "Raleway", sans-serif !important;
-  line-height: 1.2em;
+}
+
+button {
+  cursor:pointer;
+}
+
+h1 {
+  font-size: 20px;
+  color: var(--black);
+  font-weight: var(--bold);
+  line-height: 1.4em;
 }
 
 h1 span {
-  font-size: 16px;
+  font-size: 15px;
   display: block;
-  color: var(--black);
   font-weight: var(--regular);
 }
 
 h3 {
   font-size: 20px;
+  font-weight: var(--bold);
 }
 
 @media all and (max-width: 768px) {
@@ -158,6 +171,7 @@ h3 {
 
 header {
   padding: 40px 40px 0px 40px;
+  margin-bottom: 40px;
 }
 
 header nav {
@@ -173,7 +187,7 @@ header ul a {
   padding: 0px 30px;
   text-decoration: none;
   font-weight: var(--regular);
-  color: var(--darkgray);
+  color: var(--grisfonce);
 }
 
 header li a:active,
@@ -197,7 +211,7 @@ header li a:focus {
 
 footer {
   display: flex;
-  background-color: var(--lightgray);
+  background-color: var(--grisclair);
 }
 
 footer section {
@@ -213,14 +227,14 @@ footer ul li {
 footer ul a {
   text-decoration: none;
   font-weight: var(--regular);
-  color: var(--darkgray);
+  color: var(--grisfonce);
 }
 
 footer li a:active,
 footer li a:hover,
 footer li a:focus {
   text-decoration: underline;
-  color: var(--gray);
+  color: var(--gris);
 }
 
 /*========================
@@ -229,59 +243,181 @@ footer li a:focus {
  * 
  * ======================*/
 
+/* =========== SECTION RECHERCHE ==============*/
+
+#recherche #barre-recherche {
+  display: flex;
+  margin: 10px 0;
+}
+
+#recherche #barre-recherche i {
+  position: relative;
+  height: 40px;
+  width: 40px;
+  vertical-align: middle;
+  background: var(--grisclair);
+  border-radius: 10px 0 0 10px;
+}
+
+#recherche #barre-recherche i:before {
+  position: absolute;
+  top: 11px;
+  left: 14px;
+}
+
+#recherche #barre-recherche input[type="text"],
+#recherche #barre-recherche input[type="text"]:active,
+#recherche #barre-recherche input[type="text"]:focus {
+  padding: 10px 20px;
+  border: 1px solid var(--grisclair);
+  border-left: 0;
+  border-right: 0;
+  box-sizing: border-box;
+}
+
+#recherche #barre-recherche button {
+  padding: 10px;
+  border-radius: 0 10px 10px 0;
+  border: 0;
+  color: var(--blanc);
+  background: var(--bleu);
+}
+
+#recherche #filtres {
+  margin: 40px 0;
+}
+
+#recherche #filtres p, #recherche #filtres button {
+  display: inline;
+  margin-right: 20px;
+}
+
+#recherche #filtres button {
+  padding: 0 15px 0 0;
+  border-radius: 25px;
+  border: 2px solid var(--grisclair);
+  background: transparent;
+  
+}
+
+#recherche #filtres button:hover {
+  background: var(--bleuciel);
+  border: 2px solid var(--bleuciel);
+  transition: all .5s ease-in-out;
+
+}
+
+#recherche #filtres i {
+  position: relative;
+  left: -1px;
+  transform: scale(1.105);
+  background: var(--bleuciel);
+  border: 2px solid var(--bleuciel);
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 100%;
+  color: var(--bleu);
+}
+
+#recherche p {
+  margin: 20px 0 ;
+}
+
+#recherche p i {
+  color: var(--bleu);
+  transform: scale(.8);
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 100%;
+  border: 1px solid var(--gris);
+  background: transparent;
+}
+
+/* =========== SECTION HEBERGEMENTS ============= */
+
+/* SECTION CARTES */
 .gray-bg {
   border-radius: 20px;
-  background-color: var(--lightgray);
+  background-color: var(--grisclair);
 }
 
 section#hebergements {
-  width: 60vw;
-  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
   float: left;
+  width: 60vw;
+  height: 70vh;
+  padding: 30px 0 0 40px;
 }
 
-/* POSITIONNEMENT INTERIEUR CARTE */
-#hebergements article {
-  padding: auto;
+/* POSITIONNEMENT CARTE */
+
+/* STYLE DE CARTE*/
+article.carte {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  margin: 20px 20px 5px 0;
+  border-radius: 20px;
+  box-shadow: rgba(22, 22, 39, 0.3) 0px 7px 29px 0px;
+  width: 270px;
 }
+
+article.carte img {
+  height: 120px;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.carte p,
+.carte span,
+.carte h3 {
+  padding: 5px;
+}
+
+/* =========== SECTION POPULAIRES ============ */
+#populaires {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: auto;
+  padding: 30px;
+}
+
+aside .carte {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+
+aside .carte img {
+  border-top-right-radius: 0;
+  border-bottom-left-radius: inherit;
+  max-width: 100px;
+  height: 120px;
+  width: 100%;
+  object-fit: cover;
+}
+
+aside.carte p,
+aside.carte span,
+aside.carte h3 {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+/* POSITIONNEMENT CARTE */
 
 #hebergements div {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-#hebergements div:nth-child(1) {
-  display: none;
-}
-
-/* POSITIONNEMENT CARTE*/
-article.carte {
-  display: flex;
-  flex-direction: column;
-  padding: 5px;
-  margin: 20px;
-  border-radius: 20px;
-  box-shadow: rgba(22, 22, 39, 0.3) 0px 7px 29px 0px;
-  width: 280px;
-}
-
-.carte img {
-  display: flex;
-  width: auto;
-  height: 130px;
-  border-top-left-radius: inherit;
-  border-top-right-radius: inherit;
-}
-
-.carte p, .carte span, .carte h3 {
-  padding: 5px;
-}
-#populaires {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  flex-wrap: wrap;
-  width: 30vw;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 50vh;
 }
