@@ -93,17 +93,12 @@ aside {
 
 @font-face {
   font-family: "Raleway";
-  src: url("raleway-variablefont_wght-webfont.woff2") format("woff2"),
-    url("raleway-variablefont_wght-webfont.woff") format("woff");
+  src: url("/Ressources/fonts/Raleway/webfont/raleway-variablefont_wght-webfont.woff2") format("woff2"),
+    url("/Ressources/fonts/Raleway/webfont/raleway-variablefont_wght-webfont.woff") format("woff");
 }
 
-h1,
-h2,
-h3,
-p,
-li,
-a {
-  font-family: "Raleway", sans-serif;
+body, button {
+  font-family: "Raleway", sans-serif !important;
   line-height: 1.2em;
 }
 
@@ -270,7 +265,6 @@ article.carte {
   border-radius: 20px;
   box-shadow: rgba(22, 22, 39, 0.3) 0px 7px 29px 0px;
   width: 280px;
-  height: 220px;
 }
 
 .carte img {
@@ -281,6 +275,9 @@ article.carte {
   border-top-right-radius: inherit;
 }
 
+.carte p, .carte span, .carte h3 {
+  padding: 5px;
+}
 #populaires {
   display: flex;
   flex-direction: column;
