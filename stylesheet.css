@@ -9,6 +9,7 @@
   --blanc: #fff;
   --grisfonce: #555;
   --gris: #aaa;
+  --gris2: #d9d9d9;
   --grisclair: #f2f2f2;
   --noir: #aaa;
   --noir-opa65: rgba(255, 255, 255, 0.65);
@@ -79,7 +80,7 @@ aside {
   }
 }
 
-@media all and (min-width: 1250px) {
+@media all and (min-width: 1240px) {
   .maxwidth600px {
     max-width: 600px;
   }
@@ -91,21 +92,13 @@ aside {
 *
 *===============*/
 
-@font-face {
-  font-family: "Raleway";
-  src: url("/Ressources/fonts/Raleway/webfont/raleway-variablefont_wght-webfont.woff2")
-      format("woff2"),
-    url("/Ressources/fonts/Raleway/webfont/raleway-variablefont_wght-webfont.woff")
-      format("woff");
-}
-
 body,
 button {
-  font-family: "Raleway", sans-serif !important;
+  font-family: "Raleway", sans-serif;
 }
 
 button {
-  cursor:pointer;
+  cursor: pointer;
 }
 
 h1 {
@@ -215,8 +208,7 @@ footer {
 }
 
 footer section {
-  margin: 100px;
-  padding: 50px;
+  padding: 50px 20px;
 }
 
 footer ul li {
@@ -224,6 +216,9 @@ footer ul li {
   padding-top: 10px;
 }
 
+footer h3 {
+  margin-bottom: 10px;
+}
 footer ul a {
   text-decoration: none;
   font-weight: var(--regular);
@@ -273,6 +268,8 @@ footer li a:focus {
   border-left: 0;
   border-right: 0;
   box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+  font-weight: var(--bold);
 }
 
 #recherche #barre-recherche button {
@@ -281,15 +278,18 @@ footer li a:focus {
   border: 0;
   color: var(--blanc);
   background: var(--bleu);
+  font-weight: var(--bold);
 }
 
 #recherche #filtres {
   margin: 40px 0;
 }
 
-#recherche #filtres p, #recherche #filtres button {
+#recherche #filtres p,
+#recherche #filtres button {
   display: inline;
   margin-right: 20px;
+  font-weight: var(--bold);
 }
 
 #recherche #filtres button {
@@ -297,14 +297,13 @@ footer li a:focus {
   border-radius: 25px;
   border: 2px solid var(--grisclair);
   background: transparent;
-  
+  transition: 0.5s ease;
 }
 
 #recherche #filtres button:hover {
   background: var(--bleuciel);
   border: 2px solid var(--bleuciel);
-  transition: all .5s ease-in-out;
-
+  transition: all 0.5s ease;
 }
 
 #recherche #filtres i {
@@ -319,18 +318,24 @@ footer li a:focus {
   color: var(--bleu);
 }
 
-#recherche p {
-  margin: 20px 0 ;
+#recherche p.informations {
+  margin: 40px 10px;
 }
 
 #recherche p i {
   color: var(--bleu);
-  transform: scale(.8);
+  transform: scale(0.8);
   padding: 5px 10px;
   margin-right: 10px;
   border-radius: 100%;
   border: 1px solid var(--gris);
   background: transparent;
+}
+
+/*==================*/
+#hebergements-populaires {
+  display: flex;
+  flex-direction: row;
 }
 
 /* =========== SECTION HEBERGEMENTS ============= */
@@ -348,7 +353,6 @@ section#hebergements {
   justify-content: flex-start;
   float: left;
   width: 60vw;
-  height: 70vh;
   padding: 30px 0 0 40px;
 }
 
@@ -379,12 +383,20 @@ article.carte img {
   padding: 5px;
 }
 
+article span.stars i {
+  color: var(--gris2);
+}
+
+article span.stars i.blue {
+  color: #0065fc;
+}
+
 /* =========== SECTION POPULAIRES ============ */
 #populaires {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: auto;
+  width: auto; 
   padding: 30px;
 }
 
@@ -419,5 +431,4 @@ aside.carte h3 {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  height: 50vh;
 }

@@ -8,6 +8,9 @@
       rel="stylesheet"
       href="/Ressources/fonts/fontawesome-free-5.15.3-web/css/all.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
     <link
       rel="preload"
       as="font"
@@ -37,7 +40,7 @@
       </h1>
       <section class="wrapper" id="barre-recherche">
         <i class="fas fa-map-marker-alt"></i>
-        <input type="text" name="search" id="search" />
+        <input type="text" name="search" id="search" placeholder='Marseille, France' />
         <button type='button'>Rechercher </button>
       </section>
       <section class="wrapper" id="filtres">
@@ -47,10 +50,11 @@
         <button><i class="fas fa-heart"></i>Romantique</button>
         <button><i class="fas fa-dog"></i>Animaux autorisés</button>
       </section>
-      <p><i class="fas fa-info"></i>Plus de 500 logements sont disponibles dans cette ville</p>
+      <p class="informations"><i class="fas fa-info"></i>Plus de 500 logements sont disponibles dans cette ville</p>
+    
    
     </section>
-
+<div id="hebergements-populaires">
     <section id="hebergements" class="gray-bg">
       <h1>Hébergements à Marseille</h1>
       <div>
@@ -146,6 +150,7 @@
           </span>
         </article>
       </div>
+      <a class="afficher-plus">Afficher plus</a>
     </section>
     <aside id="populaires" class="gray-bg">
       <h1>Les plus populaires<i class="fas fa-chart-line"></i></h1>
@@ -154,6 +159,7 @@
           src="/Ressources/images/hebergements/4_small/emile-guillemot-Bj_rcSC5XfE-unsplash.jpg"
           alt="Hôtel Le soleil du matin"
         />
+        <div class="description-populaires">
         <h3>Hôtel Le soleil du matin</h3>
         <p>Nuit à partir de 128€</p>
         <span class="stars">
@@ -163,6 +169,7 @@
           <i class="fas fa-star blue"></i>
           <i class="fas fa-star blue"></i>
         </span>
+      </div>
       </article>
       <article class="carte rectangle">
         <img
@@ -195,7 +202,7 @@
         </span>
       </article>
     </aside>
-
+</div>
     <section class="wrapper" id="activites">
       <h1>Activités à Marseille</h1>
       <article class="carte">
@@ -238,6 +245,7 @@
           src="/Ressources/images/activites/4_small/lena-paulin-wH2-EJoDcV0-unsplash.jpg"
           alt="Parc Longchamps"
         />
+
         <h3>Parc Longchamps</h3>
       </article>
     </section>
