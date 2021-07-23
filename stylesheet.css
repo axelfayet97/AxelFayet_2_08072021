@@ -163,12 +163,15 @@ h3 {
  * ======================*/
 
 header {
-  padding: 40px 40px 0px 40px;
+  padding: 30px 40px 0px 40px;
   margin-bottom: 40px;
+  display: flex;
+  align-items: center;
 }
 
 header nav {
-  float: right;
+  position: absolute;
+  right: 0;
 }
 
 header ul li {
@@ -187,7 +190,7 @@ header li a:active,
 header li a:hover,
 header li a:focus {
   border-top: 20px solid var(--bleu);
-  padding-top: 38px;
+  padding-top: 42px;
   color: var(--bleu);
 }
 
@@ -279,6 +282,12 @@ footer li a:focus {
   color: var(--blanc);
   background: var(--bleu);
   font-weight: var(--bold);
+  transition: 0.5s ease;
+}
+
+#recherche #barre-recherche button:hover {
+  opacity: 80%;
+  transition: 0.5s ease;
 }
 
 #recherche #filtres {
@@ -303,7 +312,7 @@ footer li a:focus {
 #recherche #filtres button:hover {
   background: var(--bleuciel);
   border: 2px solid var(--bleuciel);
-  transition: all 0.5s ease;
+  transition: background 0.5s ease;
 }
 
 #recherche #filtres i {
@@ -332,28 +341,30 @@ footer li a:focus {
   background: transparent;
 }
 
-/*==================*/
-#hebergements-populaires {
-  display: flex;
-  flex-direction: row;
-}
-
-/* =========== SECTION HEBERGEMENTS ============= */
-
-/* SECTION CARTES */
+/*============ SECTION CARTES ===================*/
 .gray-bg {
   border-radius: 20px;
   background-color: var(--grisclair);
 }
 
+#hebergements-populaires {
+  display: flex;
+  flex-direction: row;
+}
+
+#hebergements-populaires h1 {
+  padding-bottom: 20px;
+}
+
+/* =========== SECTION HEBERGEMENTS ============= */
+
 section#hebergements {
   display: flex;
   flex-wrap: wrap;
-  align-content: flex-start;
+  align-content: space-around;
   justify-content: flex-start;
-  float: left;
-  width: 60vw;
-  padding: 30px 0 0 40px;
+  width: 80%;
+  padding: 40px 40px 0 40px;
 }
 
 /* POSITIONNEMENT CARTE */
@@ -363,14 +374,21 @@ article.carte {
   display: flex;
   flex-direction: column;
   padding: 5px;
-  margin: 20px 20px 5px 0;
+  margin-bottom: 20px;
   border-radius: 20px;
   box-shadow: rgba(22, 22, 39, 0.3) 0px 7px 29px 0px;
-  width: 270px;
+  width: 30%;
+  transform: scale(1);
+  transition: 0.5s ease;
+}
+
+article.carte:hover {
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 article.carte img {
-  height: 120px;
+  height: 150px;
   width: 100%;
   object-fit: cover;
   border-top-left-radius: 15px;
@@ -380,15 +398,21 @@ article.carte img {
 .carte p,
 .carte span,
 .carte h3 {
-  padding: 5px;
+  padding: 5px 5px 5px 10px;
 }
 
 article span.stars i {
   color: var(--gris2);
+  font-size: 0.8em;
 }
 
 article span.stars i.blue {
   color: #0065fc;
+}
+
+.afficher-plus {
+  padding: 40px 0;
+  font-weight: var(--bold);
 }
 
 /* =========== SECTION POPULAIRES ============ */
@@ -396,28 +420,35 @@ article span.stars i.blue {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: auto; 
-  padding: 30px;
+  width: 30%;
+  padding: 40px 40px 0 40px;
+}
+
+#populaires h1 {
+  position: relative;
+}
+
+#populaires h1 i {
+  position: absolute;
+  right: 0;
 }
 
 aside .carte {
   display: flex;
   flex-direction: row;
-  width: auto;
+  width: 100%;
+  height: 25%;
 }
 
 aside .carte img {
   border-top-right-radius: 0;
   border-bottom-left-radius: inherit;
-  max-width: 100px;
-  height: 120px;
-  width: 100%;
+  width: 30%;
+  height: 100%;
   object-fit: cover;
 }
 
-aside.carte p,
-aside.carte span,
-aside.carte h3 {
+.description-populaires {
   display: flex;
   flex-direction: column;
   width: 200px;
