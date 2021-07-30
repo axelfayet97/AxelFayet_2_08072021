@@ -119,6 +119,15 @@ h3 {
   font-weight: var(--bold);
 }
 
+a,
+a:visited,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: #000;
+  font-weight: 800;
+}
+
 @media all and (max-width: 768px) {
   h1 {
     font-size: 16px;
@@ -255,6 +264,11 @@ footer li a:focus {
   vertical-align: middle;
   background: var(--grisclair);
   border-radius: 10px 0 0 10px;
+  cursor: pointer;
+}
+
+#recherche #barre-recherche i:active {
+  transform: scale(0.95);
 }
 
 #recherche #barre-recherche i:before {
@@ -273,6 +287,7 @@ footer li a:focus {
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
   font-weight: var(--bold);
+  outline: none !important;
 }
 
 #recherche #barre-recherche button {
@@ -313,6 +328,10 @@ footer li a:focus {
   background: var(--bleuciel);
   border: 2px solid var(--bleuciel);
   transition: background 0.5s ease;
+}
+
+#recherche #filtres button:active {
+  transform: scale(0.96);
 }
 
 #recherche #filtres i {
@@ -387,6 +406,10 @@ article.carte:hover {
   cursor: pointer;
 }
 
+article.carte:active {
+  transform: scale(0.96);
+}
+
 article.carte img {
   height: 150px;
   width: 100%;
@@ -413,8 +436,14 @@ article span.stars i.blue {
 .afficher-plus {
   padding: 40px 0;
   font-weight: var(--bold);
+  cursor: pointer;
 }
 
+.afficher-plus:hover,
+.afficher-plus:focus,
+.afficher-plus:active {
+  text-decoration: underline;
+}
 /* =========== SECTION POPULAIRES ============ */
 #populaires {
   display: flex;
@@ -462,4 +491,42 @@ aside .carte img {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
+}
+
+/* =========== SECTION ACTIVITES  ============= */
+section#activites {
+  margin: 50px 40px;
+}
+
+#activites h1 {
+  padding-bottom: 30px;
+}
+
+#activites .carte {
+  padding: 0;
+}
+
+#activites .carte h3 {
+  padding: 30px;
+}
+
+.left-column {
+  display: flex;
+  align-content: space-around;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.left-column article {
+  margin: 0 40px 0 0;
+}
+
+#activites article:first-child {
+}
+
+#activites article:nth-child(3n + 2) {
+  align-self: flex-end;
+}
+
+#activites article:nth-child(3n + 3) {
 }
