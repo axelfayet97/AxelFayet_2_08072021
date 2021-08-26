@@ -46,12 +46,17 @@ header,
   margin: 20px 80px 40px;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   header,
   #recherche,
-  #hebergements-populaires,
   #activites {
     margin: 0px 20px 20px;
+  }
+}
+
+@media all and (max-width: 768px) {
+  #hebergements-populaires {
+    margin: auto 0;
   }
 }
 
@@ -111,10 +116,6 @@ a:visited {
     font-size: 22px;
   }
 
-  h2 {
-    font-size: 18px;
-  }
-
   p {
     font-size: 14px;
   }
@@ -154,14 +155,23 @@ header li a {
 header ul li {
   display: inline;
   list-style: none;
+  position: relative;
 }
 
 header li a:hover,
 header li a:focus,
 header li a:active {
-  border-top: 30px solid var(--bleu);
-  padding-top: 50px;
   color: var(--bleu);
+}
+
+header li:hover a:before {
+  content: "";
+  background: linear-gradient(var(--bleu), var(--bleu));
+  position: absolute;
+  width: 100%;
+  top: -55px;
+  height: 4px;
+  left: 0;
 }
 
 #inscription {
@@ -209,13 +219,12 @@ header li a:active {
     right: 10%;
   }
 
-  header li a:hover,
-  header li a:focus,
-  header li a:active {
-    border: 0;
-    border-bottom: 3px solid var(--bleu);
+  header li:hover a:before {
+    top: 29px;
+    height: 3px;
   }
 }
+
 /*========================
  * 
  * 				FOOTER
@@ -227,7 +236,7 @@ footer {
   justify-content: space-around;
   padding: 80px;
   background-color: var(--gris-clair);
-  width: 100%;
+  width: auto;
 }
 
 footer section {
@@ -262,7 +271,7 @@ footer li a:active {
   }
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   footer {
     flex-direction: column;
     justify-content: center;
@@ -292,9 +301,13 @@ footer li a:active {
   }
 }
 
-#recherche #barre-recherche i {
+#recherche #barre-recherche i:active:before {
+  transform: scale(0.95);
+  transform-origin: bottom;
+}
+
+#recherche #barre-recherche i#localisation {
   position: relative;
-  height: 40px;
   width: 40px;
   vertical-align: middle;
   background: var(--gris-clair);
@@ -302,15 +315,14 @@ footer li a:active {
   cursor: pointer;
 }
 
-#recherche #barre-recherche i:active:before {
-  transform: scale(0.95);
-  transform-origin: bottom;
-}
-
-#recherche #barre-recherche i:before {
+#recherche #barre-recherche i#localisation:before {
   position: absolute;
   top: 11px;
   left: 14px;
+}
+
+#recherche #barre-recherche i#loupe {
+  display: none;
 }
 
 #recherche #barre-recherche input[type="text"],
@@ -341,6 +353,23 @@ footer li a:active {
     border-radius: 15px;
     margin-left: -10px;
   }
+
+  #recherche #barre-recherche i {
+    padding: 5px;
+  }
+
+  #recherche #barre-recherche i#localisation::before {
+    top: 14px;
+    left: 20px;
+  }
+
+  #recherche #barre-recherche i#loupe {
+    display: block;
+  }
+
+  #recherche #barre-recherche p {
+    display: none;
+  }
 }
 
 #recherche #barre-recherche button:hover,
@@ -359,39 +388,54 @@ footer li a:active {
   margin: 40px 0;
 }
 
-#recherche #filtres p,
 #recherche #filtres button {
   display: inline;
-  margin: 10px 20px;
+  margin: 10px 15px;
   font-weight: var(--medium);
   font-size: 20px;
+}
+
+#recherche #filtres p {
+  display: inline;
+  font-weight: var(--bold);
+  vertical-align: middle;
 }
 
 @media all and (max-width: 480px) {
   #recherche #filtres {
     margin: 0;
   }
-  #recherche #filtres p {
+  #recherche #filtres b {
     display: block;
   }
+
+  #recherche #filtres p {
+    font-size: 16px;
+  }
 }
+
 #recherche #filtres button {
   padding: 0px 20px 0 0;
   border-radius: 25px;
   border: 2px solid var(--gris-clair);
   background: transparent;
   transition: 0.5s ease;
-  font-weight: var(--bold);
 }
 
 #recherche #filtres button:hover {
   background: var(--bleu-clair);
   border: 2px solid var(--bleu-clair);
-  transition: background 0.5s ease;
+  transition: 0.5s ease;
 }
 
 #recherche #filtres button:active {
   transform: scale(0.96);
+}
+
+@media all and (max-width: 480px) {
+  #recherche #filtres button {
+    margin-left: 0;
+  }
 }
 
 #recherche #filtres i {
@@ -428,6 +472,12 @@ footer li a:active {
   background: transparent;
 }
 
+@media all and (max-width: 480px) {
+  #recherche p.informations {
+    margin-left: 0;
+  }
+}
+
 /*============ SECTION CARTES ===================*/
 .gray-bg {
   border-radius: 20px;
@@ -444,13 +494,25 @@ footer li a:active {
   padding-bottom: 20px;
 }
 
+@media all and (max-width: 768px) {
+  .gray-bg {
+    border-radius: 0;
+  }
+
+  #hebergements.gray-bg {
+    background-color: transparent;
+  }
+
+  #hebergements-populaires {
+    flex-direction: column-reverse;
+    height: 100%;
+  }
+}
 /* =========== SECTION HEBERGEMENTS ============= */
 
 #hebergements {
   display: flex;
   flex-wrap: wrap;
-  align-content: space-around;
-  justify-content: flex-start;
   width: 80%;
   margin-right: 3%;
   padding: 50px 50px 0 50px;
@@ -482,22 +544,12 @@ footer li a:active {
   transform: scale(1.02);
   cursor: pointer;
 }
-
 #hebergements article.carte img {
   height: 150px;
   width: 100%;
   object-fit: cover;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-}
-
-@media all and (max-width: 1024px) {
-  #hebergements article.carte img {
-    height: 100px;
-  }
-  #hebergements article span.stars i {
-    font-size: 0.6em;
-  }
 }
 
 #hebergements .carte p,
@@ -529,6 +581,49 @@ footer li a:active {
   text-decoration: underline;
 }
 
+@media all and (max-width: 1024px) {
+  #hebergements article.carte img {
+    height: 100px;
+  }
+}
+
+@media all and (max-width: 768px) {
+  #hebergements {
+    margin-right: 0;
+    padding: 20px;
+    width: auto;
+  }
+
+  #hebergements h2 {
+    display: block;
+    width: 100%;
+  }
+
+  #hebergements div {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #hebergements article.carte {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  #hebergements article.carte img {
+    height: 25vw;
+  }
+
+  #hebergements article span.stars i,
+  #populaires article span.stars i {
+    color: var(--gris2);
+    font-size: 0.7em;
+  }
+
+  #hebergements .afficher-plus {
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+}
 /* =========== SECTION POPULAIRES ============ */
 
 /* POSITIONNEMENT CARTE */
@@ -541,9 +636,11 @@ footer li a:active {
   width: 30%;
   padding: 50px 40px 20px 40px;
 }
+
 #populaires h2 {
-  margin-bottom: 35px;
+  margin-bottom: 25px;
 }
+
 #populaires h2 i {
   float: right;
 }
@@ -560,8 +657,7 @@ footer li a:active {
 }
 
 #populaires article.carte img {
-  height: 100%;
-  width: 140px;
+  width: 10vw;
   object-fit: cover;
   border-top-left-radius: 15px;
   border-top-right-radius: 0;
@@ -578,6 +674,20 @@ footer li a:active {
   bottom: 0;
 }
 
+@media all and (max-width: 768px) {
+  #populaires {
+    width: auto;
+    padding: 20px;
+  }
+
+  #populaires article.carte {
+    height: 140px;
+    margin-bottom: 15px;
+  }
+  #populaires article.carte img {
+    width: 35vw;
+  }
+}
 /* =========== SECTION ACTIVITES  ============= */
 
 #activites {
@@ -636,11 +746,7 @@ footer li a:active {
 }
 
 #activites .carte-activite h3 {
-  padding: 04%;
-}
-
-#activites .conteneur-cartes-colonne .carte-activite:first-child img {
-  height: 80%;
+  padding: 4%;
 }
 
 #activites
@@ -648,6 +754,10 @@ footer li a:active {
   .conteneur-cartes-colonne
   .carte-activite:first-child {
   height: 50%;
+}
+
+#activites .conteneur-cartes-colonne .carte-activite:first-child img {
+  height: 80%;
 }
 
 #activites .conteneur-cartes-colonne .carte-activite:last-child img {
@@ -659,4 +769,45 @@ footer li a:active {
   .conteneur-cartes-colonne
   .carte-activite:last-of-type {
   height: 40%;
+}
+
+@media all and (max-width: 768px) {
+  #activites {
+    margin-top: 20px;
+  }
+  #activites div.conteneur-cartes {
+    height: auto;
+    flex-direction: column;
+  }
+
+  #activites .conteneur-cartes article,
+  #activites
+    div.conteneur-cartes
+    .conteneur-cartes-colonne
+    .carte-activite:first-child,
+  #activites
+    div.conteneur-cartes
+    .conteneur-cartes-colonne
+    .carte-activite:last-child {
+    margin: 10px 0;
+    height: 150px;
+  }
+  #activites
+    .conteneur-cartes-colonne
+    .carte-activite:first-child
+    img
+    #activites
+    .conteneur-cartes-colonne
+    .carte-activite:last-child
+    img {
+    height: 10%;
+  }
+
+  #activites .conteneur-cartes-colonne {
+    flex-direction: row;
+  }
+
+  #activites div.conteneur-cartes .conteneur-cartes-colonne {
+    flex-direction: column;
+  }
 }
