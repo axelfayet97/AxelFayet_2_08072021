@@ -90,7 +90,7 @@ h1 span {
 
 h2 {
   font-size: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 h3 {
@@ -240,7 +240,6 @@ footer ul li {
   padding-top: 15px;
 }
 
-
 footer ul a {
   text-decoration: none;
   font-weight: var(--regular);
@@ -262,7 +261,7 @@ footer li a:active {
   }
 
   footer section {
-    margin: 0 0 20px 0 ;
+    margin: 0 0 20px 0;
     width: 100%;
   }
 }
@@ -278,7 +277,6 @@ footer li a:active {
   display: flex;
   margin: 20px 0;
 }
-
 
 #recherche #barre-recherche i:active:before {
   transform: scale(0.95);
@@ -342,7 +340,6 @@ footer li a:active {
   #recherche #barre-recherche {
     justify-content: flex-start;
   }
-
 }
 
 @media all and (max-width: 480px) {
@@ -350,11 +347,11 @@ footer li a:active {
     border-radius: 15px;
     margin-left: -10px;
   }
-  
+
   #recherche #barre-recherche input[type="text"],
   #recherche #barre-recherche input[type="text"]:active,
   #recherche #barre-recherche input[type="text"]:focus {
-  width: 80%;
+    width: 80%;
   }
 
   #recherche #barre-recherche i {
@@ -505,6 +502,7 @@ footer li a:active {
 #hebergements {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   width: 70%;
   margin-right: 3%;
   padding: 3%;
@@ -524,7 +522,7 @@ footer li a:active {
 
 #hebergements article.carte {
   padding: 5px;
-  margin-bottom: 5%;
+  margin-bottom: 20%;
   border-radius: 20px;
   box-shadow: rgba(20, 20, 40, 0.3) 0px 5px 30px 0px;
   transform: scale(1);
@@ -564,8 +562,9 @@ footer li a:active {
 }
 
 #hebergements .afficher-plus {
-  margin: 20px 0;
+  font-size: 20px;
   font-weight: var(--bold);
+  margin: 20px 0;
 }
 
 #hebergements a:hover.afficher-plus,
@@ -637,9 +636,8 @@ footer li a:active {
 }
 
 #populaires h2 {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
-
 
 #populaires h3 {
   margin: 10px 0;
@@ -660,7 +658,6 @@ footer li a:active {
   transition: 0.5s ease;
 }
 
-
 #populaires a article.carte img {
   width: 10vw;
   object-fit: cover;
@@ -674,8 +671,8 @@ footer li a:active {
 }
 
 #populaires a article.carte .description-populaires span.stars {
-position: absolute;
-bottom: 5px;
+  position: absolute;
+  bottom: 5px;
 }
 
 @media all and (max-width: 1023px) {
@@ -695,7 +692,7 @@ bottom: 5px;
   #populaires a article.carte .description-populaires span.stars {
     position: absolute;
     bottom: 10%;
-    }
+  }
 }
 
 /* =========== SECTION ACTIVITES  ============= */
@@ -750,15 +747,11 @@ bottom: 5px;
   margin: 0 3%;
 }
 
-#activites
-div.conteneur-cartes
-.conteneur-cartes-colonne a:first-child {
+#activites div.conteneur-cartes .conteneur-cartes-colonne a:first-child {
   height: 55%;
 }
 
-#activites
-div.conteneur-cartes
-.conteneur-cartes-colonne a:first-child img {
+#activites div.conteneur-cartes .conteneur-cartes-colonne a:first-child img {
   height: 85%;
 }
 
@@ -767,13 +760,12 @@ div.conteneur-cartes
 }
 
 #activites .conteneur-cartes-colonne a:last-child {
-height: 35%;
+  height: 35%;
 }
 
 #activites .conteneur-cartes-colonne a:last-child img {
   height: 70%;
 }
-
 
 @media all and (max-width: 1023px) {
   #activites {
@@ -797,10 +789,8 @@ height: 35%;
     height: 35vw;
   }
 
-  #activites .carte-activite img,    
-  #activites
-  div.conteneur-cartes
-  .conteneur-cartes-colonne a:first-child img,
+  #activites .carte-activite img,
+  #activites div.conteneur-cartes .conteneur-cartes-colonne a:first-child img,
   #activites .conteneur-cartes-colonne a:last-child img {
     height: 80%;
   }
@@ -825,15 +815,21 @@ height: 35%;
 }
 
 @media all and (max-width: 768px) {
-  #activites .carte-activite img,    
-  #activites
-  div.conteneur-cartes
-  .conteneur-cartes-colonne a:first-child img,
+  #activites .carte-activite img,
+  #activites div.conteneur-cartes .conteneur-cartes-colonne a:first-child img,
   #activites .conteneur-cartes-colonne a:last-child img {
     height: 70%;
   }
 
-  #activites .conteneur-cartes article, #activites div.conteneur-cartes .conteneur-cartes-colonne .carte-activite:first-child, #activites div.conteneur-cartes .conteneur-cartes-colonne .carte-activite:last-child {
-  height: 50vw;
+  #activites .conteneur-cartes article,
+  #activites
+    div.conteneur-cartes
+    .conteneur-cartes-colonne
+    .carte-activite:first-child,
+  #activites
+    div.conteneur-cartes
+    .conteneur-cartes-colonne
+    .carte-activite:last-child {
+    height: 50vw;
   }
 }
