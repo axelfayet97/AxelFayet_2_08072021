@@ -7,8 +7,6 @@
 :root {
   /* COULEURS */
   --noir: #000;
-  --gris-fonce: #555;
-  --noir-opa65: rgba(255, 255, 255, 0.65);
   --gris: #aaa;
   --gris2: #d9d9d9;
   --gris-clair: #f2f2f2;
@@ -106,14 +104,12 @@ a:visited {
 }
 
 @media all and (max-width: 1023px) {
-  h2 {
-    font-size: 20px;
-  }
-}
-
-@media all and (max-width: 1023px) {
   h1 {
     font-size: 22px;
+  }
+
+  h2 {
+    font-size: 20px;
   }
 
   p {
@@ -128,33 +124,41 @@ a:visited {
  * ======================*/
 
 header {
-  margin-top: 40px;
   display: flex;
   align-items: center;
+  margin-top: 40px;
 }
 
 header #inscription {
   position: absolute;
   right: 60px;
   top: 55px;
+  transition: all 0.2s linear;
 }
+
+header #inscription:hover,
+header #inscription:focus,
+header #inscription:active {
+  opacity: 70%;
+}
+
 header nav {
   position: absolute;
   display: flex;
   right: 200px;
 }
 
-header li a {
-  padding: 0px 30px;
-  text-decoration: none;
-  font-weight: var(--regular);
-  color: var(--noir);
-}
-
 header ul li {
   display: inline;
   list-style: none;
   position: relative;
+}
+
+header li a {
+  padding: 20px 30px;
+  text-decoration: none;
+  font-weight: var(--regular);
+  color: var(--noir);
 }
 
 header li a:hover,
@@ -183,13 +187,14 @@ header li:hover a:before {
     display: block;
   }
 
+  header div {
+    margin-bottom: 20px;
+  }
+
   header #inscription {
     right: 15px;
   }
 
-  header div {
-    margin-bottom: 20px;
-  }
   header nav {
     display: inline-block;
     left: 0;
@@ -200,12 +205,13 @@ header li:hover a:before {
     display: block;
     text-align: center;
     border-bottom: 3px solid var(--gris-clair);
-    padding-bottom: 10px;
   }
 
   header nav ul li {
     display: inline-block;
     text-align: center;
+    width: 49%;
+    padding-bottom: 20px;
   }
 
   header nav li a {
@@ -213,8 +219,9 @@ header li:hover a:before {
   }
 
   header li:hover a:before {
-    top: 29px;
+    width: 100%;
     height: 3px;
+    top: 39px;
   }
 }
 
@@ -264,6 +271,7 @@ footer li a:active {
     width: 100%;
   }
 }
+
 /*========================
  * 
  * 			  ACCUEIL
@@ -302,8 +310,8 @@ footer li a:active {
 }
 
 #recherche #barre-recherche input[type="text"],
-#recherche #barre-recherche input[type="text"]:active,
-#recherche #barre-recherche input[type="text"]:focus {
+#recherche #barre-recherche input[type="text"]:focus,
+#recherche #barre-recherche input[type="text"]:active {
   min-width: 15%;
   padding: 10px 10px;
   border: 1px solid var(--gris-clair);
@@ -325,7 +333,8 @@ footer li a:active {
 }
 
 #recherche #barre-recherche button:hover,
-#recherche #barre-recherche button:focus {
+#recherche #barre-recherche button:focus,
+#recherche #barre-recherche button:active {
   opacity: 80%;
   transition: 0.5s ease;
   background: var(--bleu);
@@ -371,7 +380,7 @@ footer li a:active {
   }
 }
 
-/* SECTION FILTRES */
+/*========== SECTION FILTRES ==========*/
 
 #recherche #filtres {
   margin: 40px 0;
@@ -501,6 +510,7 @@ footer li a:active {
     height: 100%;
   }
 }
+
 /* =========== SECTION HEBERGEMENTS ============= */
 
 #hebergements {
@@ -519,7 +529,8 @@ footer li a:active {
   justify-content: space-between;
 }
 
-/* STYLE DE CARTE*/
+/* STYLE DE CARTE */
+
 #hebergements a {
   width: 30%;
 }
@@ -539,6 +550,7 @@ footer li a:active {
 #populaires article.carte:active {
   transform: scale(1.02);
 }
+
 #hebergements article.carte img {
   height: 150px;
   width: 100%;
@@ -810,7 +822,7 @@ footer li a:active {
   }
 
   #activites .carte-activite h3 {
-    padding: 10px;
+    padding: 2% 10px;
   }
 
   #activites .conteneur-cartes-colonne:first-of-type,
@@ -823,7 +835,7 @@ footer li a:active {
   #activites .carte-activite img,
   #activites div.conteneur-cartes .conteneur-cartes-colonne a:first-child img,
   #activites .conteneur-cartes-colonne a:last-child img {
-    height: 70%;
+    height: 80%;
   }
 
   #activites .conteneur-cartes article,
