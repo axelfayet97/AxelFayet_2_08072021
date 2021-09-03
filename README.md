@@ -1,5 +1,4 @@
 # AxelFayet_2_08072021
-# Lien github : https://github.com/axelfayet97/AxelFayet_2_08072021/
 
 Bienvenue sur le Repository du Projet 2 d'Openclassrooms Reservia codé par moi-même.
 
