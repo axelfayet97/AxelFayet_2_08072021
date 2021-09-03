@@ -386,7 +386,9 @@ footer li a:active {
   margin: 40px 0;
 }
 
-#recherche #filtres b {
+#recherche #filtres h2 {
+  display: inline;
+  margin-bottom: 0;
   font-size: 20px;
 }
 
@@ -406,8 +408,9 @@ footer li a:active {
   #recherche #filtres {
     margin: 0;
   }
-  #recherche #filtres b {
+  #recherche #filtres h2 {
     display: block;
+    margin-top: 30px;
     font-size: 20px;
   }
 
